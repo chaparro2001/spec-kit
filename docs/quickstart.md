@@ -1,102 +1,102 @@
-# Quick Start Guide
+# Guía de Inicio Rápido
 
-This guide will help you get started with Spec-Driven Development using Spec Kit.
+Esta guía te ayudará a comenzar con el Desarrollo Dirigido por Especificaciones usando Spec Kit.
 
 > [!NOTE]
-> All automation scripts now provide both Bash (`.sh`) and PowerShell (`.ps1`) variants. The `specify` CLI auto-selects based on OS unless you pass `--script sh|ps`.
+> Todos los scripts de automatización ahora proporcionan variantes tanto en Bash (`.sh`) como en PowerShell (`.ps1`). El CLI `specify` selecciona automáticamente según el SO a menos que pases `--script sh|ps`.
 
-## The 6-Step Process
+## El Proceso de 6 Pasos
 
 > [!TIP]
-> **Context Awareness**: Spec Kit commands automatically detect the active feature based on your current Git branch (e.g., `001-feature-name`). To switch between different specifications, simply switch Git branches.
+> **Reconocimiento de Contexto**: Los comandos de Spec Kit detectan automáticamente la funcionalidad activa basándose en tu rama actual de Git (por ejemplo, `001-feature-name`). Para cambiar entre diferentes especificaciones, simplemente cambia de rama en Git.
 
-### Step 1: Install Specify
+### Paso 1: Instalar Specify
 
-**In your terminal**, run the `specify` CLI command to initialize your project:
+**En tu terminal**, ejecuta el comando CLI `specify` para inicializar tu proyecto:
 
 ```bash
-# Create a new project directory
+# Crear un nuevo directorio de proyecto
 uvx --from git+https://github.com/github/spec-kit.git specify init <PROJECT_NAME>
 
-# OR initialize in the current directory
+# O inicializar en el directorio actual
 uvx --from git+https://github.com/github/spec-kit.git specify init .
 ```
 
-Pick script type explicitly (optional):
+Elegir el tipo de script explícitamente (opcional):
 
 ```bash
 uvx --from git+https://github.com/github/spec-kit.git specify init <PROJECT_NAME> --script ps  # Force PowerShell
 uvx --from git+https://github.com/github/spec-kit.git specify init <PROJECT_NAME> --script sh  # Force POSIX shell
 ```
 
-### Step 2: Define Your Constitution
+### Paso 2: Definir tu Constitución
 
-**In your AI Agent's chat interface**, use the `/speckit.constitution` slash command to establish the core rules and principles for your project. You should provide your project's specific principles as arguments.
+**En la interfaz de chat de tu Agente de IA**, usa el comando slash `/speckit.constitution` para establecer las reglas y principios fundamentales de tu proyecto. Debes proporcionar los principios específicos de tu proyecto como argumentos.
 
 ```markdown
 /speckit.constitution This project follows a "Library-First" approach. All features must be implemented as standalone libraries first. We use TDD strictly. We prefer functional programming patterns.
 ```
 
-### Step 3: Create the Spec
+### Paso 3: Crear la Especificación
 
-**In the chat**, use the `/speckit.specify` slash command to describe what you want to build. Focus on the **what** and **why**, not the tech stack.
+**En el chat**, usa el comando slash `/speckit.specify` para describir lo que quieres construir. Enfócate en el **qué** y el **por qué**, no en el stack tecnológico.
 
 ```markdown
 /speckit.specify Build an application that can help me organize my photos in separate photo albums. Albums are grouped by date and can be re-organized by dragging and dropping on the main page. Albums are never in other nested albums. Within each album, photos are previewed in a tile-like interface.
 ```
 
-### Step 4: Refine the Spec
+### Paso 4: Refinar la Especificación
 
-**In the chat**, use the `/speckit.clarify` slash command to identify and resolve ambiguities in your specification. You can provide specific focus areas as arguments.
+**En el chat**, usa el comando slash `/speckit.clarify` para identificar y resolver ambigüedades en tu especificación. Puedes proporcionar áreas de enfoque específicas como argumentos.
 
 ```bash
 /speckit.clarify Focus on security and performance requirements.
 ```
 
-### Step 5: Create a Technical Implementation Plan
+### Paso 5: Crear un Plan de Implementación Técnica
 
-**In the chat**, use the `/speckit.plan` slash command to provide your tech stack and architecture choices.
+**En el chat**, usa el comando slash `/speckit.plan` para proporcionar tu stack tecnológico y decisiones de arquitectura.
 
 ```markdown
 /speckit.plan The application uses Vite with minimal number of libraries. Use vanilla HTML, CSS, and JavaScript as much as possible. Images are not uploaded anywhere and metadata is stored in a local SQLite database.
 ```
 
-### Step 6: Break Down and Implement
+### Paso 6: Desglosar e Implementar
 
-**In the chat**, use the `/speckit.tasks` slash command to create an actionable task list.
+**En el chat**, usa el comando slash `/speckit.tasks` para crear una lista de tareas accionables.
 
 ```markdown
 /speckit.tasks
 ```
 
-Optionally, validate the plan with `/speckit.analyze`:
+Opcionalmente, valida el plan con `/speckit.analyze`:
 
 ```markdown
 /speckit.analyze
 ```
 
-Then, use the `/speckit.implement` slash command to execute the plan.
+Luego, usa el comando slash `/speckit.implement` para ejecutar el plan.
 
 ```markdown
 /speckit.implement
 ```
 
 > [!TIP]
-> **Phased Implementation**: For complex projects, implement in phases to avoid overwhelming the agent's context. Start with core functionality, validate it works, then add features incrementally.
+> **Implementación por Fases**: Para proyectos complejos, implementa en fases para evitar saturar el contexto del agente. Comienza con la funcionalidad principal, valida que funcione y luego añade funcionalidades de forma incremental.
 
-## Detailed Example: Building Taskify
+## Ejemplo Detallado: Construyendo Taskify
 
-Here's a complete example of building a team productivity platform:
+Aquí tienes un ejemplo completo de cómo construir una plataforma de productividad para equipos:
 
-### Step 1: Define Constitution
+### Paso 1: Definir la Constitución
 
-Initialize the project's constitution to set ground rules:
+Inicializa la constitución del proyecto para establecer las reglas base:
 
 ```markdown
 /speckit.constitution Taskify is a "Security-First" application. All user inputs must be validated. We use a microservices architecture. Code must be fully documented.
 ```
 
-### Step 2: Define Requirements with `/speckit.specify`
+### Paso 2: Definir Requisitos con `/speckit.specify`
 
 ```text
 Develop Taskify, a team productivity platform. It should allow users to create projects, add team members,
@@ -108,71 +108,71 @@ different sample projects. Let's have the standard Kanban columns for the status
 first testing thing to ensure that our basic features are set up.
 ```
 
-### Step 3: Refine the Specification
+### Paso 3: Refinar la Especificación
 
-Use the `/speckit.clarify` command to interactively resolve any ambiguities in your specification. You can also provide specific details you want to ensure are included.
+Usa el comando `/speckit.clarify` para resolver interactivamente cualquier ambigüedad en tu especificación. También puedes proporcionar detalles específicos que deseas asegurar que se incluyan.
 
 ```bash
 /speckit.clarify I want to clarify the task card details. For each task in the UI for a task card, you should be able to change the current status of the task between the different columns in the Kanban work board. You should be able to leave an unlimited number of comments for a particular card. You should be able to, from that task card, assign one of the valid users.
 ```
 
-You can continue to refine the spec with more details using `/speckit.clarify`:
+Puedes continuar refinando la especificación con más detalles usando `/speckit.clarify`:
 
 ```bash
 /speckit.clarify When you first launch Taskify, it's going to give you a list of the five users to pick from. There will be no password required. When you click on a user, you go into the main view, which displays the list of projects. When you click on a project, you open the Kanban board for that project. You're going to see the columns. You'll be able to drag and drop cards back and forth between different columns. You will see any cards that are assigned to you, the currently logged in user, in a different color from all the other ones, so you can quickly see yours. You can edit any comments that you make, but you can't edit comments that other people made. You can delete any comments that you made, but you can't delete comments anybody else made.
 ```
 
-### Step 4: Validate the Spec
+### Paso 4: Validar la Especificación
 
-Validate the specification checklist using the `/speckit.checklist` command:
+Valida la lista de verificación de la especificación usando el comando `/speckit.checklist`:
 
 ```bash
 /speckit.checklist
 ```
 
-### Step 5: Generate Technical Plan with `/speckit.plan`
+### Paso 5: Generar el Plan Técnico con `/speckit.plan`
 
-Be specific about your tech stack and technical requirements:
+Sé específico sobre tu stack tecnológico y requisitos técnicos:
 
 ```bash
 /speckit.plan We are going to generate this using .NET Aspire, using Postgres as the database. The frontend should use Blazor server with drag-and-drop task boards, real-time updates. There should be a REST API created with a projects API, tasks API, and a notifications API.
 ```
 
-### Step 6: Define Tasks
+### Paso 6: Definir Tareas
 
-Generate an actionable task list using the `/speckit.tasks` command:
+Genera una lista de tareas accionables usando el comando `/speckit.tasks`:
 
 ```bash
 /speckit.tasks
 ```
 
-### Step 7: Validate and Implement
+### Paso 7: Validar e Implementar
 
-Have your AI agent audit the implementation plan using `/speckit.analyze`:
+Haz que tu agente de IA audite el plan de implementación usando `/speckit.analyze`:
 
 ```bash
 /speckit.analyze
 ```
 
-Finally, implement the solution:
+Finalmente, implementa la solución:
 
 ```bash
 /speckit.implement
 ```
 
 > [!TIP]
-> **Phased Implementation**: For large projects like Taskify, consider implementing in phases (e.g., Phase 1: Basic project/task structure, Phase 2: Kanban functionality, Phase 3: Comments and assignments). This prevents context saturation and allows for validation at each stage.
+> **Implementación por Fases**: Para proyectos grandes como Taskify, considera implementar en fases (por ejemplo, Fase 1: Estructura básica de proyectos/tareas, Fase 2: Funcionalidad Kanban, Fase 3: Comentarios y asignaciones). Esto previene la saturación del contexto y permite la validación en cada etapa.
 
-## Key Principles
+## Principios Clave
 
-- **Be explicit** about what you're building and why
-- **Don't focus on tech stack** during specification phase
-- **Iterate and refine** your specifications before implementation
-- **Validate** the plan before coding begins
-- **Let the AI agent handle** the implementation details
+- **Sé explícito** sobre lo que estás construyendo y por qué
+- **No te enfoques en el stack tecnológico** durante la fase de especificación
+- **Itera y refina** tus especificaciones antes de la implementación
+- **Valida** el plan antes de comenzar a programar
+- **Deja que el agente de IA se encargue** de los detalles de implementación
 
-## Next Steps
+## Próximos Pasos
 
-- Read the [complete methodology](https://github.com/github/spec-kit/blob/main/spec-driven.md) for in-depth guidance
-- Check out [more examples](https://github.com/github/spec-kit/tree/main/templates) in the repository
-- Explore the [source code on GitHub](https://github.com/github/spec-kit)
+- Lee la [metodología completa](https://github.com/github/spec-kit/blob/main/spec-driven.md) para una guía en profundidad
+- Consulta [más ejemplos](https://github.com/github/spec-kit/tree/main/templates) en el repositorio
+- Explora el [código fuente en GitHub](https://github.com/github/spec-kit)

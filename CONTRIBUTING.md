@@ -1,150 +1,148 @@
-# Contributing to Spec Kit
+# Contribuir a Spec Kit
 
-Hi there! We're thrilled that you'd like to contribute to Spec Kit. Contributions to this project are [released](https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license) to the public under the [project's open source license](LICENSE).
+¡Hola! Estamos encantados de que quieras contribuir a Spec Kit. Las contribuciones a este proyecto se [publican](https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license) al público bajo la [licencia de código abierto del proyecto](LICENSE).
 
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+Por favor ten en cuenta que este proyecto se publica con un [Código de Conducta del Contribuidor](CODE_OF_CONDUCT.md). Al participar en este proyecto aceptas cumplir con sus términos.
 
-## Prerequisites for running and testing code
+## Prerrequisitos para ejecutar y probar código
 
-These are one time installations required to be able to test your changes locally as part of the pull request (PR) submission process.
+Estas son instalaciones únicas necesarias para poder probar tus cambios localmente como parte del proceso de envío de pull requests (PR).
 
-1. Install [Python 3.11+](https://www.python.org/downloads/)
-1. Install [uv](https://docs.astral.sh/uv/) for package management
-1. Install [Git](https://git-scm.com/downloads)
-1. Have an [AI coding agent available](README.md#-supported-ai-agents)
+1. Instalar [Python 3.11+](https://www.python.org/downloads/)
+1. Instalar [uv](https://docs.astral.sh/uv/) para gestión de paquetes
+1. Instalar [Git](https://git-scm.com/downloads)
+1. Tener un [agente de codificación con IA disponible](README.md#-agentes-de-ia-soportados)
 
 <details>
-<summary><b>💡 Hint if you are using <code>VSCode</code> or <code>GitHub Codespaces</code> as your IDE</b></summary>
+<summary><b>💡 Consejo si estás usando <code>VSCode</code> o <code>GitHub Codespaces</code> como tu IDE</b></summary>
 
 <br>
 
-Provided you have [Docker](https://docker.com) installed on your machine, you can leverage [Dev Containers](https://containers.dev) through this [VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), to easily set up your development environment, with aforementioned tools already installed and configured, thanks to the `.devcontainer/devcontainer.json` file (located at the root of the project).
+Siempre que tengas [Docker](https://docker.com) instalado en tu máquina, puedes aprovechar los [Dev Containers](https://containers.dev) a través de esta [extensión de VSCode](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), para configurar fácilmente tu entorno de desarrollo, con las herramientas mencionadas ya instaladas y configuradas, gracias al archivo `.devcontainer/devcontainer.json` (ubicado en la raíz del proyecto).
 
-To do so, simply:
+Para hacerlo, simplemente:
 
-- Checkout the repo
-- Open it with VSCode
-- Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) and select "Dev Containers: Open Folder in Container..."
+- Clona el repositorio
+- Ábrelo con VSCode
+- Abre la [Paleta de Comandos](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) y selecciona "Dev Containers: Open Folder in Container..."
 
-On [GitHub Codespaces](https://github.com/features/codespaces) it's even simpler, as it leverages the `.devcontainer/devcontainer.json` automatically upon opening the codespace.
+En [GitHub Codespaces](https://github.com/features/codespaces) es aún más sencillo, ya que aprovecha el `.devcontainer/devcontainer.json` automáticamente al abrir el codespace.
 
 </details>
 
-## Submitting a pull request
+## Enviar un pull request
 
 > [!NOTE]
-> If your pull request introduces a large change that materially impacts the work of the CLI or the rest of the repository (e.g., you're introducing new templates, arguments, or otherwise major changes), make sure that it was **discussed and agreed upon** by the project maintainers. Pull requests with large changes that did not have a prior conversation and agreement will be closed.
+> Si tu pull request introduce un cambio grande que impacta materialmente el trabajo del CLI o del resto del repositorio (ej., estás introduciendo nuevas plantillas, argumentos u otros cambios importantes), asegúrate de que fue **discutido y acordado** por los mantenedores del proyecto. Los pull requests con cambios grandes que no tuvieron una conversación y acuerdo previo serán cerrados.
 
-1. Fork and clone the repository
-1. Configure and install the dependencies: `uv sync`
-1. Make sure the CLI works on your machine: `uv run specify --help`
-1. Create a new branch: `git checkout -b my-branch-name`
-1. Make your change, add tests, and make sure everything still works
-1. Test the CLI functionality with a sample project if relevant
-1. Push to your fork and submit a pull request
-1. Wait for your pull request to be reviewed and merged.
+1. Haz fork y clona el repositorio
+1. Configura e instala las dependencias: `uv sync`
+1. Asegúrate de que el CLI funciona en tu máquina: `uv run specify --help`
+1. Crea un nuevo branch: `git checkout -b my-branch-name`
+1. Realiza tu cambio, añade pruebas y asegúrate de que todo sigue funcionando
+1. Prueba la funcionalidad del CLI con un proyecto de ejemplo si es relevante
+1. Haz push a tu fork y envía un pull request
+1. Espera a que tu pull request sea revisado y fusionado con merge.
 
-Here are a few things you can do that will increase the likelihood of your pull request being accepted:
+Aquí hay algunas cosas que puedes hacer para aumentar la probabilidad de que tu pull request sea aceptado:
 
-- Follow the project's coding conventions.
-- Write tests for new functionality.
-- Update documentation (`README.md`, `spec-driven.md`) if your changes affect user-facing features.
-- Keep your change as focused as possible. If there are multiple changes you would like to make that are not dependent upon each other, consider submitting them as separate pull requests.
-- Write a [good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
-- Test your changes with the Spec-Driven Development workflow to ensure compatibility.
+- Sigue las convenciones de codificación del proyecto.
+- Escribe pruebas para la nueva funcionalidad.
+- Actualiza la documentación (`README.md`, `spec-driven.md`) si tus cambios afectan funcionalidades de cara al usuario.
+- Mantén tu cambio lo más enfocado posible. Si hay múltiples cambios que te gustaría hacer que no dependen entre sí, considera enviarlos como pull requests separados.
+- Escribe un [buen mensaje de commit](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
+- Prueba tus cambios con el flujo de trabajo de Desarrollo Dirigido por Especificaciones para asegurar la compatibilidad.
 
-## Development workflow
+## Flujo de trabajo de desarrollo
 
-When working on spec-kit:
+Al trabajar en spec-kit:
 
-1. Test changes with the `specify` CLI commands (`/speckit.specify`, `/speckit.plan`, `/speckit.tasks`) in your coding agent of choice
-2. Verify templates are working correctly in `templates/` directory
-3. Test script functionality in the `scripts/` directory
-4. Ensure memory files (`memory/constitution.md`) are updated if major process changes are made
+1. Prueba los cambios con los comandos del CLI `specify` (`/speckit.specify`, `/speckit.plan`, `/speckit.tasks`) en tu agente de codificación preferido
+2. Verifica que las plantillas funcionan correctamente en el directorio `templates/`
+3. Prueba la funcionalidad de los scripts en el directorio `scripts/`
+4. Asegúrate de que los archivos de memoria (`memory/constitution.md`) se actualicen si se realizan cambios importantes en el proceso
 
-### Testing template and command changes locally
+### Probar cambios de plantillas y comandos localmente
 
-Running `uv run specify init` pulls released packages, which won’t include your local changes.  
-To test your templates, commands, and other changes locally, follow these steps:
+Ejecutar `uv run specify init` descarga los paquetes publicados, que no incluirán tus cambios locales.
+Para probar tus plantillas, comandos y otros cambios localmente, sigue estos pasos:
 
-1. **Create release packages**
+1. **Crear paquetes de release**
 
-   Run the following command to generate the local packages:
+   Ejecuta el siguiente comando para generar los paquetes locales:
 
    ```bash
    ./.github/workflows/scripts/create-release-packages.sh v1.0.0
    ```
 
-2. **Copy the relevant package to your test project**
+2. **Copiar el paquete relevante a tu proyecto de prueba**
 
    ```bash
    cp -r .genreleases/sdd-copilot-package-sh/. <path-to-test-project>/
    ```
 
-3. **Open and test the agent**
+3. **Abrir y probar el agente**
 
-   Navigate to your test project folder and open the agent to verify your implementation.
+   Navega a la carpeta de tu proyecto de prueba y abre el agente para verificar tu implementación.
 
-## AI contributions in Spec Kit
+## Contribuciones con IA en Spec Kit
 
 > [!IMPORTANT]
 >
-> If you are using **any kind of AI assistance** to contribute to Spec Kit,
-> it must be disclosed in the pull request or issue.
+> Si estás usando **cualquier tipo de asistencia de IA** para contribuir a Spec Kit,
+> debe ser revelado en el pull request o issue.
 
-We welcome and encourage the use of AI tools to help improve Spec Kit! Many valuable contributions have been enhanced with AI assistance for code generation, issue detection, and feature definition.
+¡Damos la bienvenida y fomentamos el uso de herramientas de IA para ayudar a mejorar Spec Kit! Muchas contribuciones valiosas han sido mejoradas con asistencia de IA para generación de código, detección de problemas y definición de funcionalidades.
 
-That being said, if you are using any kind of AI assistance (e.g., agents, ChatGPT) while contributing to Spec Kit,
-**this must be disclosed in the pull request or issue**, along with the extent to which AI assistance was used (e.g., documentation comments vs. code generation).
+Dicho esto, si estás usando cualquier tipo de asistencia de IA (ej., agentes, ChatGPT) mientras contribuyes a Spec Kit,
+**esto debe ser revelado en el pull request o issue**, junto con el grado en que se usó la asistencia de IA (ej., comentarios de documentación vs. generación de código).
 
-If your PR responses or comments are being generated by an AI, disclose that as well.
+Si las respuestas o comentarios de tu PR están siendo generados por una IA, revela eso también.
 
-As an exception, trivial spacing or typo fixes don't need to be disclosed, so long as the changes are limited to small parts of the code or short phrases.
+Como excepción, las correcciones triviales de espaciado o errores tipográficos no necesitan ser reveladas, siempre que los cambios se limiten a pequeñas partes del código o frases cortas.
 
-An example disclosure:
+Un ejemplo de revelación:
 
-> This PR was written primarily by GitHub Copilot.
+> Este PR fue escrito principalmente por GitHub Copilot.
 
-Or a more detailed disclosure:
+O una revelación más detallada:
 
-> I consulted ChatGPT to understand the codebase but the solution
-> was fully authored manually by myself.
+> Consulté ChatGPT para entender el código base pero la solución
+> fue completamente escrita manualmente por mí.
 
-Failure to disclose this is first and foremost rude to the human operators on the other end of the pull request, but it also makes it difficult to
-determine how much scrutiny to apply to the contribution.
+No revelar esto es ante todo una falta de respeto hacia los operadores humanos al otro lado del pull request, pero también dificulta determinar cuánto escrutinio aplicar a la contribución.
 
-In a perfect world, AI assistance would produce equal or higher quality work than any human. That isn't the world we live in today, and in most cases
-where human supervision or expertise is not in the loop, it's generating code that cannot be reasonably maintained or evolved.
+En un mundo perfecto, la asistencia de IA produciría trabajo de igual o mayor calidad que cualquier humano. Ese no es el mundo en el que vivimos hoy, y en la mayoría de los casos donde la supervisión o experiencia humana no está presente, se genera código que no puede ser razonablemente mantenido o evolucionado.
 
-### What we're looking for
+### Lo que buscamos
 
-When submitting AI-assisted contributions, please ensure they include:
+Al enviar contribuciones asistidas por IA, por favor asegúrate de que incluyan:
 
-- **Clear disclosure of AI use** - You are transparent about AI use and degree to which you're using it for the contribution
-- **Human understanding and testing** - You've personally tested the changes and understand what they do
-- **Clear rationale** - You can explain why the change is needed and how it fits within Spec Kit's goals
-- **Concrete evidence** - Include test cases, scenarios, or examples that demonstrate the improvement
-- **Your own analysis** - Share your thoughts on the end-to-end developer experience
+- **Revelación clara del uso de IA** - Eres transparente sobre el uso de IA y el grado en que la estás usando para la contribución
+- **Comprensión y pruebas humanas** - Has probado personalmente los cambios y entiendes lo que hacen
+- **Justificación clara** - Puedes explicar por qué el cambio es necesario y cómo encaja dentro de los objetivos de Spec Kit
+- **Evidencia concreta** - Incluye casos de prueba, escenarios o ejemplos que demuestren la mejora
+- **Tu propio análisis** - Comparte tus pensamientos sobre la experiencia del desarrollador de extremo a extremo
 
-### What we'll close
+### Lo que cerraremos
 
-We reserve the right to close contributions that appear to be:
+Nos reservamos el derecho de cerrar contribuciones que parezcan ser:
 
-- Untested changes submitted without verification
-- Generic suggestions that don't address specific Spec Kit needs
-- Bulk submissions that show no human review or understanding
+- Cambios no probados enviados sin verificación
+- Sugerencias genéricas que no abordan necesidades específicas de Spec Kit
+- Envíos masivos que no muestran revisión o comprensión humana
 
-### Guidelines for success
+### Pautas para el éxito
 
-The key is demonstrating that you understand and have validated your proposed changes. If a maintainer can easily tell that a contribution was generated entirely by AI without human input or testing, it likely needs more work before submission.
+La clave es demostrar que entiendes y has validado los cambios que propones. Si un mantenedor puede determinar fácilmente que una contribución fue generada completamente por IA sin intervención o pruebas humanas, probablemente necesita más trabajo antes de ser enviada.
 
-Contributors who consistently submit low-effort AI-generated changes may be restricted from further contributions at the maintainers' discretion.
+Los contribuidores que envíen consistentemente cambios generados por IA de bajo esfuerzo pueden ser restringidos de hacer más contribuciones a discreción de los mantenedores.
 
-Please be respectful to maintainers and disclose AI assistance.
+Por favor sé respetuoso con los mantenedores y revela la asistencia de IA.
 
-## Resources
+## Recursos
 
-- [Spec-Driven Development Methodology](./spec-driven.md)
-- [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)
-- [Using Pull Requests](https://help.github.com/articles/about-pull-requests/)
-- [GitHub Help](https://help.github.com)
+- [Metodología de Desarrollo Dirigido por Especificaciones](./spec-driven.md)
+- [Cómo Contribuir al Código Abierto](https://opensource.guide/how-to-contribute/)
+- [Usando Pull Requests](https://help.github.com/articles/about-pull-requests/)
+- [Ayuda de GitHub](https://help.github.com)

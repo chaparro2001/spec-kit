@@ -1,19 +1,19 @@
-# Home page
-- name: Home
+# Página principal
+- name: Inicio
   href: index.md
 
-# Getting started section
-- name: Getting Started
+# Sección de primeros pasos
+- name: Primeros Pasos
   items:
-    - name: Installation
+    - name: Instalación
       href: installation.md
-    - name: Quick Start
+    - name: Inicio Rápido
       href: quickstart.md
-    - name: Upgrade
+    - name: Actualización
       href: upgrade.md
 
-# Development workflows
-- name: Development
+# Flujos de trabajo de desarrollo
+- name: Desarrollo
   items:
-    - name: Local Development
+    - name: Desarrollo Local
       href: local-development.md

@@ -1,67 +1,67 @@
 # Spec Kit
 
-*Build high-quality software faster.*
+*Construye software de alta calidad más rápido.*
 
-**An effort to allow organizations to focus on product scenarios rather than writing undifferentiated code with the help of Spec-Driven Development.**
+**Un esfuerzo para permitir que las organizaciones se enfoquen en escenarios de producto en lugar de escribir código indiferenciado, con la ayuda del Desarrollo Dirigido por Especificaciones.**
 
-## What is Spec-Driven Development?
+## ¿Qué es el Desarrollo Dirigido por Especificaciones?
 
-Spec-Driven Development **flips the script** on traditional software development. For decades, code has been king — specifications were just scaffolding we built and discarded once the "real work" of coding began. Spec-Driven Development changes this: **specifications become executable**, directly generating working implementations rather than just guiding them.
+El Desarrollo Dirigido por Especificaciones **cambia las reglas del juego** en el desarrollo de software tradicional. Durante décadas, el código ha sido el rey: las especificaciones eran solo andamios que construíamos y descartábamos una vez que comenzaba el "trabajo real" de programar. El Desarrollo Dirigido por Especificaciones cambia esto: **las especificaciones se vuelven ejecutables**, generando directamente implementaciones funcionales en lugar de solo guiarlas.
 
-## Getting Started
+## Primeros Pasos
 
-- [Installation Guide](installation.md)
-- [Quick Start Guide](quickstart.md)
-- [Upgrade Guide](upgrade.md)
-- [Local Development](local-development.md)
+- [Guía de Instalación](installation.md)
+- [Guía de Inicio Rápido](quickstart.md)
+- [Guía de Actualización](upgrade.md)
+- [Desarrollo Local](local-development.md)
 
-## Core Philosophy
+## Filosofía Central
 
-Spec-Driven Development is a structured process that emphasizes:
+El Desarrollo Dirigido por Especificaciones es un proceso estructurado que enfatiza:
 
-- **Intent-driven development** where specifications define the "*what*" before the "*how*"
-- **Rich specification creation** using guardrails and organizational principles
-- **Multi-step refinement** rather than one-shot code generation from prompts
-- **Heavy reliance** on advanced AI model capabilities for specification interpretation
+- **Desarrollo dirigido por la intención** donde las especificaciones definen el "*qué*" antes del "*cómo*"
+- **Creación de especificaciones enriquecidas** utilizando guías y principios organizacionales
+- **Refinamiento en múltiples pasos** en lugar de generación de código en un solo intento a partir de prompts
+- **Gran dependencia** de las capacidades avanzadas de modelos de IA para la interpretación de especificaciones
 
-## Development Phases
+## Fases de Desarrollo
 
-| Phase | Focus | Key Activities |
-|-------|-------|----------------|
-| **0-to-1 Development** ("Greenfield") | Generate from scratch | <ul><li>Start with high-level requirements</li><li>Generate specifications</li><li>Plan implementation steps</li><li>Build production-ready applications</li></ul> |
-| **Creative Exploration** | Parallel implementations | <ul><li>Explore diverse solutions</li><li>Support multiple technology stacks & architectures</li><li>Experiment with UX patterns</li></ul> |
-| **Iterative Enhancement** ("Brownfield") | Brownfield modernization | <ul><li>Add features iteratively</li><li>Modernize legacy systems</li><li>Adapt processes</li></ul> |
+| Fase | Enfoque | Actividades Clave |
+|------|---------|-------------------|
+| **Desarrollo 0-a-1** ("Greenfield") | Generar desde cero | <ul><li>Comenzar con requisitos de alto nivel</li><li>Generar especificaciones</li><li>Planificar los pasos de implementación</li><li>Construir aplicaciones listas para producción</li></ul> |
+| **Exploración Creativa** | Implementaciones paralelas | <ul><li>Explorar soluciones diversas</li><li>Soportar múltiples stacks tecnológicos y arquitecturas</li><li>Experimentar con patrones de UX</li></ul> |
+| **Mejora Iterativa** ("Brownfield") | Modernización brownfield | <ul><li>Añadir funcionalidades de forma iterativa</li><li>Modernizar sistemas legados</li><li>Adaptar procesos</li></ul> |
 
-## Experimental Goals
+## Objetivos Experimentales
 
-Our research and experimentation focus on:
+Nuestra investigación y experimentación se enfocan en:
 
-### Technology Independence
+### Independencia Tecnológica
 
-- Create applications using diverse technology stacks
-- Validate the hypothesis that Spec-Driven Development is a process not tied to specific technologies, programming languages, or frameworks
+- Crear aplicaciones usando stacks tecnológicos diversos
+- Validar la hipótesis de que el Desarrollo Dirigido por Especificaciones es un proceso no vinculado a tecnologías, lenguajes de programación o frameworks específicos
 
-### Enterprise Constraints
+### Restricciones Empresariales
 
-- Demonstrate mission-critical application development
-- Incorporate organizational constraints (cloud providers, tech stacks, engineering practices)
-- Support enterprise design systems and compliance requirements
+- Demostrar el desarrollo de aplicaciones de misión crítica
+- Incorporar restricciones organizacionales (proveedores de nube, stacks tecnológicos, prácticas de ingeniería)
+- Soportar sistemas de diseño empresarial y requisitos de cumplimiento
 
-### User-Centric Development
+### Desarrollo Centrado en el Usuario
 
-- Build applications for different user cohorts and preferences
-- Support various development approaches (from vibe-coding to AI-native development)
+- Construir aplicaciones para diferentes cohortes de usuarios y preferencias
+- Soportar diversos enfoques de desarrollo (desde vibe-coding hasta desarrollo nativo con IA)
 
-### Creative & Iterative Processes
+### Procesos Creativos e Iterativos
 
-- Validate the concept of parallel implementation exploration
-- Provide robust iterative feature development workflows
-- Extend processes to handle upgrades and modernization tasks
+- Validar el concepto de exploración de implementaciones paralelas
+- Proporcionar flujos de trabajo robustos para el desarrollo iterativo de funcionalidades
+- Extender los procesos para manejar tareas de actualización y modernización
 
-## Contributing
+## Contribuciones
 
-Please see our [Contributing Guide](https://github.com/github/spec-kit/blob/main/CONTRIBUTING.md) for information on how to contribute to this project.
+Por favor consulta nuestra [Guía de Contribución](https://github.com/github/spec-kit/blob/main/CONTRIBUTING.md) para obtener información sobre cómo contribuir a este proyecto.
 
-## Support
+## Soporte
 
-For support, please check our [Support Guide](https://github.com/github/spec-kit/blob/main/SUPPORT.md) or open an issue on GitHub.
+Para obtener soporte, consulta nuestra [Guía de Soporte](https://github.com/github/spec-kit/blob/main/SUPPORT.md) o abre un issue en GitHub.

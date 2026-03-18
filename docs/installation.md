@@ -1,34 +1,34 @@
-# Installation Guide
+# Guía de Instalación
 
-## Prerequisites
+## Requisitos Previos
 
-- **Linux/macOS** (or Windows; PowerShell scripts now supported without WSL)
-- AI coding agent: [Claude Code](https://www.anthropic.com/claude-code), [GitHub Copilot](https://code.visualstudio.com/), [Codebuddy CLI](https://www.codebuddy.ai/cli), [Gemini CLI](https://github.com/google-gemini/gemini-cli), or [Pi Coding Agent](https://pi.dev)
-- [uv](https://docs.astral.sh/uv/) for package management
+- **Linux/macOS** (o Windows; los scripts de PowerShell ahora son compatibles sin WSL)
+- Agente de programación con IA: [Claude Code](https://www.anthropic.com/claude-code), [GitHub Copilot](https://code.visualstudio.com/), [Codebuddy CLI](https://www.codebuddy.ai/cli), [Gemini CLI](https://github.com/google-gemini/gemini-cli) o [Pi Coding Agent](https://pi.dev)
+- [uv](https://docs.astral.sh/uv/) para la gestión de paquetes
 - [Python 3.11+](https://www.python.org/downloads/)
 - [Git](https://git-scm.com/downloads)
 
-## Installation
+## Instalación
 
-### Initialize a New Project
+### Inicializar un Nuevo Proyecto
 
-The easiest way to get started is to initialize a new project:
+La forma más sencilla de comenzar es inicializar un nuevo proyecto:
 
 ```bash
 uvx --from git+https://github.com/github/spec-kit.git specify init <PROJECT_NAME>
 ```
 
-Or initialize in the current directory:
+O inicializar en el directorio actual:
 
 ```bash
 uvx --from git+https://github.com/github/spec-kit.git specify init .
-# or use the --here flag
+# o usar la bandera --here
 uvx --from git+https://github.com/github/spec-kit.git specify init --here
 ```
 
-### Specify AI Agent
+### Especificar el Agente de IA
 
-You can proactively specify your AI agent during initialization:
+Puedes especificar proactivamente tu agente de IA durante la inicialización:
 
 ```bash
 uvx --from git+https://github.com/github/spec-kit.git specify init <project_name> --ai claude
@@ -38,46 +38,46 @@ uvx --from git+https://github.com/github/spec-kit.git specify init <project_name
 uvx --from git+https://github.com/github/spec-kit.git specify init <project_name> --ai pi
 ```
 
-### Specify Script Type (Shell vs PowerShell)
+### Especificar el Tipo de Script (Shell vs PowerShell)
 
-All automation scripts now have both Bash (`.sh`) and PowerShell (`.ps1`) variants.
+Todos los scripts de automatización ahora tienen variantes tanto en Bash (`.sh`) como en PowerShell (`.ps1`).
 
-Auto behavior:
+Comportamiento automático:
 
-- Windows default: `ps`
-- Other OS default: `sh`
-- Interactive mode: you'll be prompted unless you pass `--script`
+- Windows por defecto: `ps`
+- Otros SO por defecto: `sh`
+- Modo interactivo: se te preguntará a menos que pases `--script`
 
-Force a specific script type:
+Forzar un tipo de script específico:
 
 ```bash
 uvx --from git+https://github.com/github/spec-kit.git specify init <project_name> --script sh
 uvx --from git+https://github.com/github/spec-kit.git specify init <project_name> --script ps
 ```
 
-### Ignore Agent Tools Check
+### Ignorar la Verificación de Herramientas del Agente
 
-If you prefer to get the templates without checking for the right tools:
+Si prefieres obtener las plantillas sin verificar que tengas las herramientas correctas:
 
 ```bash
 uvx --from git+https://github.com/github/spec-kit.git specify init <project_name> --ai claude --ignore-agent-tools
 ```
 
-## Verification
+## Verificación
 
-After initialization, you should see the following commands available in your AI agent:
+Después de la inicialización, deberías ver los siguientes comandos disponibles en tu agente de IA:
 
-- `/speckit.specify` - Create specifications
-- `/speckit.plan` - Generate implementation plans  
-- `/speckit.tasks` - Break down into actionable tasks
+- `/speckit.specify` - Crear especificaciones
+- `/speckit.plan` - Generar planes de implementación
+- `/speckit.tasks` - Desglosar en tareas accionables
 
-The `.specify/scripts` directory will contain both `.sh` and `.ps1` scripts.
+El directorio `.specify/scripts` contendrá tanto scripts `.sh` como `.ps1`.
 
-## Troubleshooting
+## Solución de Problemas
 
-### Git Credential Manager on Linux
+### Git Credential Manager en Linux
 
-If you're having issues with Git authentication on Linux, you can install Git Credential Manager:
+Si tienes problemas con la autenticación de Git en Linux, puedes instalar Git Credential Manager:
 
 ```bash
 #!/usr/bin/env bash

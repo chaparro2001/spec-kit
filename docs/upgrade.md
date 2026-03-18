@@ -1,90 +1,90 @@
-# Upgrade Guide
+# Guía de Actualización
 
-> You have Spec Kit installed and want to upgrade to the latest version to get new features, bug fixes, or updated slash commands. This guide covers both upgrading the CLI tool and updating your project files.
+> Ya tienes Spec Kit instalado y deseas actualizar a la última versión para obtener nuevas funcionalidades, correcciones de errores o comandos slash actualizados. Esta guía cubre tanto la actualización de la herramienta CLI como la actualización de los archivos de tu proyecto.
 
 ---
 
-## Quick Reference
+## Referencia Rápida
 
-| What to Upgrade | Command | When to Use |
+| Qué Actualizar | Comando | Cuándo Usar |
 |----------------|---------|-------------|
-| **CLI Tool Only** | `uv tool install specify-cli --force --from git+https://github.com/github/spec-kit.git` | Get latest CLI features without touching project files |
-| **Project Files** | `specify init --here --force --ai <your-agent>` | Update slash commands, templates, and scripts in your project |
-| **Both** | Run CLI upgrade, then project update | Recommended for major version updates |
+| **Solo la Herramienta CLI** | `uv tool install specify-cli --force --from git+https://github.com/github/spec-kit.git` | Obtener las últimas funcionalidades del CLI sin tocar los archivos del proyecto |
+| **Archivos del Proyecto** | `specify init --here --force --ai <your-agent>` | Actualizar comandos slash, plantillas y scripts en tu proyecto |
+| **Ambos** | Ejecutar la actualización del CLI y luego la del proyecto | Recomendado para actualizaciones de versiones mayores |
 
 ---
 
-## Part 1: Upgrade the CLI Tool
+## Parte 1: Actualizar la Herramienta CLI
 
-The CLI tool (`specify`) is separate from your project files. Upgrade it to get the latest features and bug fixes.
+La herramienta CLI (`specify`) es independiente de los archivos de tu proyecto. Actualízala para obtener las últimas funcionalidades y correcciones de errores.
 
-### If you installed with `uv tool install`
+### Si instalaste con `uv tool install`
 
 ```bash
 uv tool install specify-cli --force --from git+https://github.com/github/spec-kit.git
 ```
 
-### If you use one-shot `uvx` commands
+### Si usas comandos `uvx` de un solo uso
 
-No upgrade needed—`uvx` always fetches the latest version. Just run your commands as normal:
+No se necesita actualización: `uvx` siempre obtiene la última versión. Simplemente ejecuta tus comandos como de costumbre:
 
 ```bash
 uvx --from git+https://github.com/github/spec-kit.git specify init --here --ai copilot
 ```
 
-### Verify the upgrade
+### Verificar la actualización
 
 ```bash
 specify check
 ```
 
-This shows installed tools and confirms the CLI is working.
+Esto muestra las herramientas instaladas y confirma que el CLI está funcionando.
 
 ---
 
-## Part 2: Updating Project Files
+## Parte 2: Actualizar los Archivos del Proyecto
 
-When Spec Kit releases new features (like new slash commands or updated templates), you need to refresh your project's Spec Kit files.
+Cuando Spec Kit publica nuevas funcionalidades (como nuevos comandos slash o plantillas actualizadas), necesitas actualizar los archivos de Spec Kit en tu proyecto.
 
-### What gets updated?
+### ¿Qué se actualiza?
 
-Running `specify init --here --force` will update:
+Ejecutar `specify init --here --force` actualizará:
 
-- ✅ **Slash command files** (`.claude/commands/`, `.github/prompts/`, etc.)
-- ✅ **Script files** (`.specify/scripts/`)
-- ✅ **Template files** (`.specify/templates/`)
-- ✅ **Shared memory files** (`.specify/memory/`) - **⚠️ See warnings below**
+- ✅ **Archivos de comandos slash** (`.claude/commands/`, `.github/prompts/`, etc.)
+- ✅ **Archivos de scripts** (`.specify/scripts/`)
+- ✅ **Archivos de plantillas** (`.specify/templates/`)
+- ✅ **Archivos de memoria compartida** (`.specify/memory/`) - **⚠️ Ver advertencias abajo**
 
-### What stays safe?
+### ¿Qué permanece seguro?
 
-These files are **never touched** by the upgrade—the template packages don't even contain them:
+Estos archivos **nunca son modificados** por la actualización; los paquetes de plantillas ni siquiera los contienen:
 
-- ✅ **Your specifications** (`specs/001-my-feature/spec.md`, etc.) - **CONFIRMED SAFE**
-- ✅ **Your implementation plans** (`specs/001-my-feature/plan.md`, `tasks.md`, etc.) - **CONFIRMED SAFE**
-- ✅ **Your source code** - **CONFIRMED SAFE**
-- ✅ **Your git history** - **CONFIRMED SAFE**
+- ✅ **Tus especificaciones** (`specs/001-my-feature/spec.md`, etc.) - **CONFIRMADO SEGURO**
+- ✅ **Tus planes de implementación** (`specs/001-my-feature/plan.md`, `tasks.md`, etc.) - **CONFIRMADO SEGURO**
+- ✅ **Tu código fuente** - **CONFIRMADO SEGURO**
+- ✅ **Tu historial de git** - **CONFIRMADO SEGURO**
 
-The `specs/` directory is completely excluded from template packages and will never be modified during upgrades.
+El directorio `specs/` está completamente excluido de los paquetes de plantillas y nunca será modificado durante las actualizaciones.
 
-### Update command
+### Comando de actualización
 
-Run this inside your project directory:
+Ejecuta esto dentro del directorio de tu proyecto:
 
 ```bash
 specify init --here --force --ai <your-agent>
 ```
 
-Replace `<your-agent>` with your AI assistant. Refer to this list of [Supported AI Agents](../README.md#-supported-ai-agents)
+Reemplaza `<your-agent>` con tu asistente de IA. Consulta esta lista de [Agentes de IA Soportados](../README.md#-supported-ai-agents)
 
-**Example:**
+**Ejemplo:**
 
 ```bash
 specify init --here --force --ai copilot
 ```
 
-### Understanding the `--force` flag
+### Entendiendo la bandera `--force`
 
-Without `--force`, the CLI warns you and asks for confirmation:
+Sin `--force`, el CLI te advierte y pide confirmación:
 
 ```text
 Warning: Current directory is not empty (25 items)
@@ -92,19 +92,19 @@ Template files will be merged with existing content and may overwrite existing f
 Proceed? [y/N]
 ```
 
-With `--force`, it skips the confirmation and proceeds immediately.
+Con `--force`, omite la confirmación y procede inmediatamente.
 
-**Important: Your `specs/` directory is always safe.** The `--force` flag only affects template files (commands, scripts, templates, memory). Your feature specifications, plans, and tasks in `specs/` are never included in upgrade packages and cannot be overwritten.
+**Importante: Tu directorio `specs/` siempre está seguro.** La bandera `--force` solo afecta a los archivos de plantillas (comandos, scripts, plantillas, memoria). Tus especificaciones de funcionalidades, planes y tareas en `specs/` nunca están incluidos en los paquetes de actualización y no pueden ser sobrescritos.
 
 ---
 
-## ⚠️ Important Warnings
+## ⚠️ Advertencias Importantes
 
-### 1. Constitution file will be overwritten
+### 1. El archivo de constitución será sobrescrito
 
-**Known issue:** `specify init --here --force` currently overwrites `.specify/memory/constitution.md` with the default template, erasing any customizations you made.
+**Problema conocido:** `specify init --here --force` actualmente sobrescribe `.specify/memory/constitution.md` con la plantilla por defecto, borrando cualquier personalización que hayas realizado.
 
-**Workaround:**
+**Solución alternativa:**
 
 ```bash
 # 1. Back up your constitution before upgrading
@@ -117,16 +117,16 @@ specify init --here --force --ai copilot
 mv .specify/memory/constitution-backup.md .specify/memory/constitution.md
 ```
 
-Or use git to restore it:
+O usa git para restaurarlo:
 
 ```bash
 # After upgrade, restore from git history
 git restore .specify/memory/constitution.md
 ```
 
-### 2. Custom template modifications
+### 2. Modificaciones personalizadas en plantillas
 
-If you customized any templates in `.specify/templates/`, the upgrade will overwrite them. Back them up first:
+Si personalizaste alguna plantilla en `.specify/templates/`, la actualización las sobrescribirá. Haz una copia de seguridad primero:
 
 ```bash
 # Back up custom templates
@@ -135,13 +135,13 @@ cp -r .specify/templates .specify/templates-backup
 # After upgrade, merge your changes back manually
 ```
 
-### 3. Duplicate slash commands (IDE-based agents)
+### 3. Comandos slash duplicados (agentes basados en IDE)
 
-Some IDE-based agents (like Kilo Code, Windsurf) may show **duplicate slash commands** after upgrading—both old and new versions appear.
+Algunos agentes basados en IDE (como Kilo Code, Windsurf) pueden mostrar **comandos slash duplicados** después de actualizar: aparecen tanto las versiones antiguas como las nuevas.
 
-**Solution:** Manually delete the old command files from your agent's folder.
+**Solución:** Elimina manualmente los archivos de comandos antiguos de la carpeta de tu agente.
 
-**Example for Kilo Code:**
+**Ejemplo para Kilo Code:**
 
 ```bash
 # Navigate to the agent's commands folder
@@ -155,13 +155,13 @@ rm speckit.specify-old.md
 rm speckit.plan-v1.md
 ```
 
-Restart your IDE to refresh the command list.
+Reinicia tu IDE para actualizar la lista de comandos.
 
 ---
 
-## Common Scenarios
+## Escenarios Comunes
 
-### Scenario 1: "I just want new slash commands"
+### Escenario 1: "Solo quiero los nuevos comandos slash"
 
 ```bash
 # Upgrade CLI (if using persistent install)
@@ -174,7 +174,7 @@ specify init --here --force --ai copilot
 git restore .specify/memory/constitution.md
 ```
 
-### Scenario 2: "I customized templates and constitution"
+### Escenario 2: "Personalicé plantillas y la constitución"
 
 ```bash
 # 1. Back up customizations
@@ -192,9 +192,9 @@ mv /tmp/constitution-backup.md .specify/memory/constitution.md
 # Manually merge template changes if needed
 ```
 
-### Scenario 3: "I see duplicate slash commands in my IDE"
+### Escenario 3: "Veo comandos slash duplicados en mi IDE"
 
-This happens with IDE-based agents (Kilo Code, Windsurf, Roo Code, etc.).
+Esto sucede con agentes basados en IDE (Kilo Code, Windsurf, Roo Code, etc.).
 
 ```bash
 # Find the agent folder (example: .kilocode/rules/)
@@ -209,9 +209,9 @@ rm speckit.old-command-name.md
 # Restart your IDE
 ```
 
-### Scenario 4: "I'm working on a project without Git"
+### Escenario 4: "Estoy trabajando en un proyecto sin Git"
 
-If you initialized your project with `--no-git`, you can still upgrade:
+Si inicializaste tu proyecto con `--no-git`, aún puedes actualizar:
 
 ```bash
 # Manually back up files you customized
@@ -224,43 +224,43 @@ specify init --here --force --ai copilot --no-git
 mv /tmp/constitution-backup.md .specify/memory/constitution.md
 ```
 
-The `--no-git` flag skips git initialization but doesn't affect file updates.
+La bandera `--no-git` omite la inicialización de git pero no afecta las actualizaciones de archivos.
 
 ---
 
-## Using `--no-git` Flag
+## Uso de la Bandera `--no-git`
 
-The `--no-git` flag tells Spec Kit to **skip git repository initialization**. This is useful when:
+La bandera `--no-git` le indica a Spec Kit que **omita la inicialización del repositorio git**. Esto es útil cuando:
 
-- You manage version control differently (Mercurial, SVN, etc.)
-- Your project is part of a larger monorepo with existing git setup
-- You're experimenting and don't want version control yet
+- Gestionas el control de versiones de otra manera (Mercurial, SVN, etc.)
+- Tu proyecto es parte de un monorepo más grande con una configuración de git existente
+- Estás experimentando y aún no quieres control de versiones
 
-**During initial setup:**
+**Durante la configuración inicial:**
 
 ```bash
 specify init my-project --ai copilot --no-git
 ```
 
-**During upgrade:**
+**Durante la actualización:**
 
 ```bash
 specify init --here --force --ai copilot --no-git
 ```
 
-### What `--no-git` does NOT do
+### Lo que `--no-git` NO hace
 
-❌ Does NOT prevent file updates
-❌ Does NOT skip slash command installation
-❌ Does NOT affect template merging
+❌ NO previene las actualizaciones de archivos
+❌ NO omite la instalación de comandos slash
+❌ NO afecta la fusión de plantillas
 
-It **only** skips running `git init` and creating the initial commit.
+**Solo** omite la ejecución de `git init` y la creación del commit inicial.
 
-### Working without Git
+### Trabajar sin Git
 
-If you use `--no-git`, you'll need to manage feature directories manually:
+Si usas `--no-git`, necesitarás gestionar los directorios de funcionalidades manualmente:
 
-**Set the `SPECIFY_FEATURE` environment variable** before using planning commands:
+**Establece la variable de entorno `SPECIFY_FEATURE`** antes de usar los comandos de planificación:
 
 ```bash
 # Bash/Zsh
@@ -270,22 +270,22 @@ export SPECIFY_FEATURE="001-my-feature"
 $env:SPECIFY_FEATURE = "001-my-feature"
 ```
 
-This tells Spec Kit which feature directory to use when creating specs, plans, and tasks.
+Esto le indica a Spec Kit qué directorio de funcionalidad usar al crear especificaciones, planes y tareas.
 
-**Why this matters:** Without git, Spec Kit can't detect your current branch name to determine the active feature. The environment variable provides that context manually.
+**Por qué esto importa:** Sin git, Spec Kit no puede detectar el nombre de tu rama actual para determinar la funcionalidad activa. La variable de entorno proporciona ese contexto manualmente.
 
 ---
 
-## Troubleshooting
+## Solución de Problemas
 
-### "Slash commands not showing up after upgrade"
+### "Los comandos slash no aparecen después de la actualización"
 
-**Cause:** Agent didn't reload the command files.
+**Causa:** El agente no recargó los archivos de comandos.
 
-**Fix:**
+**Solución:**
 
-1. **Restart your IDE/editor** completely (not just reload window)
-2. **For CLI-based agents**, verify files exist:
+1. **Reinicia tu IDE/editor completamente** (no solo recargar la ventana)
+2. **Para agentes basados en CLI**, verifica que los archivos existan:
 
    ```bash
    ls -la .claude/commands/      # Claude Code
@@ -294,13 +294,13 @@ This tells Spec Kit which feature directory to use when creating specs, plans, a
    ls -la .pi/prompts/           # Pi Coding Agent
    ```
 
-3. **Check agent-specific setup:**
-   - Codex requires `CODEX_HOME` environment variable
-   - Some agents need workspace restart or cache clearing
+3. **Verifica la configuración específica del agente:**
+   - Codex requiere la variable de entorno `CODEX_HOME`
+   - Algunos agentes necesitan reiniciar el workspace o limpiar la caché
 
-### "I lost my constitution customizations"
+### "Perdí mis personalizaciones de la constitución"
 
-**Fix:** Restore from git or backup:
+**Solución:** Restaurar desde git o una copia de seguridad:
 
 ```bash
 # If you committed before upgrading
@@ -310,11 +310,11 @@ git restore .specify/memory/constitution.md
 cp /tmp/constitution-backup.md .specify/memory/constitution.md
 ```
 
-**Prevention:** Always commit or back up `constitution.md` before upgrading.
+**Prevención:** Siempre haz commit o copia de seguridad de `constitution.md` antes de actualizar.
 
-### "Warning: Current directory is not empty"
+### "Advertencia: El directorio actual no está vacío"
 
-**Full warning message:**
+**Mensaje de advertencia completo:**
 
 ```text
 Warning: Current directory is not empty (25 items)
@@ -322,51 +322,51 @@ Template files will be merged with existing content and may overwrite existing f
 Do you want to continue? [y/N]
 ```
 
-**What this means:**
+**Qué significa esto:**
 
-This warning appears when you run `specify init --here` (or `specify init .`) in a directory that already has files. It's telling you:
+Esta advertencia aparece cuando ejecutas `specify init --here` (o `specify init .`) en un directorio que ya tiene archivos. Te está indicando:
 
-1. **The directory has existing content** - In the example, 25 files/folders
-2. **Files will be merged** - New template files will be added alongside your existing files
-3. **Some files may be overwritten** - If you already have Spec Kit files (`.claude/`, `.specify/`, etc.), they'll be replaced with the new versions
+1. **El directorio tiene contenido existente** - En el ejemplo, 25 archivos/carpetas
+2. **Los archivos se fusionarán** - Los nuevos archivos de plantilla se añadirán junto a tus archivos existentes
+3. **Algunos archivos podrían ser sobrescritos** - Si ya tienes archivos de Spec Kit (`.claude/`, `.specify/`, etc.), serán reemplazados con las nuevas versiones
 
-**What gets overwritten:**
+**Qué se sobrescribe:**
 
-Only Spec Kit infrastructure files:
+Solo los archivos de infraestructura de Spec Kit:
 
-- Agent command files (`.claude/commands/`, `.github/prompts/`, etc.)
-- Scripts in `.specify/scripts/`
-- Templates in `.specify/templates/`
-- Memory files in `.specify/memory/` (including constitution)
+- Archivos de comandos del agente (`.claude/commands/`, `.github/prompts/`, etc.)
+- Scripts en `.specify/scripts/`
+- Plantillas en `.specify/templates/`
+- Archivos de memoria en `.specify/memory/` (incluyendo la constitución)
 
-**What stays untouched:**
+**Qué no se toca:**
 
-- Your `specs/` directory (specifications, plans, tasks)
-- Your source code files
-- Your `.git/` directory and git history
-- Any other files not part of Spec Kit templates
+- Tu directorio `specs/` (especificaciones, planes, tareas)
+- Tus archivos de código fuente
+- Tu directorio `.git/` e historial de git
+- Cualquier otro archivo que no sea parte de las plantillas de Spec Kit
 
-**How to respond:**
+**Cómo responder:**
 
-- **Type `y` and press Enter** - Proceed with the merge (recommended if upgrading)
-- **Type `n` and press Enter** - Cancel the operation
-- **Use `--force` flag** - Skip this confirmation entirely:
+- **Escribe `y` y presiona Enter** - Proceder con la fusión (recomendado si estás actualizando)
+- **Escribe `n` y presiona Enter** - Cancelar la operación
+- **Usa la bandera `--force`** - Omitir esta confirmación por completo:
 
   ```bash
   specify init --here --force --ai copilot
   ```
 
-**When you see this warning:**
+**Cuándo ves esta advertencia:**
 
-- ✅ **Expected** when upgrading an existing Spec Kit project
-- ✅ **Expected** when adding Spec Kit to an existing codebase
-- ⚠️ **Unexpected** if you thought you were creating a new project in an empty directory
+- ✅ **Esperado** al actualizar un proyecto existente de Spec Kit
+- ✅ **Esperado** al añadir Spec Kit a un código base existente
+- ⚠️ **Inesperado** si pensabas que estabas creando un nuevo proyecto en un directorio vacío
 
-**Prevention tip:** Before upgrading, commit or back up your `.specify/memory/constitution.md` if you customized it.
+**Consejo de prevención:** Antes de actualizar, haz commit o copia de seguridad de tu `.specify/memory/constitution.md` si lo personalizaste.
 
-### "CLI upgrade doesn't seem to work"
+### "La actualización del CLI no parece funcionar"
 
-Verify the installation:
+Verifica la instalación:
 
 ```bash
 # Check installed tools
@@ -380,30 +380,30 @@ which specify
 # Should point to the uv tool installation directory
 ```
 
-If not found, reinstall:
+Si no se encuentra, reinstala:
 
 ```bash
 uv tool uninstall specify-cli
 uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
 ```
 
-### "Do I need to run specify every time I open my project?"
+### "¿Necesito ejecutar specify cada vez que abro mi proyecto?"
 
-**Short answer:** No, you only run `specify init` once per project (or when upgrading).
+**Respuesta corta:** No, solo ejecutas `specify init` una vez por proyecto (o al actualizar).
 
-**Explanation:**
+**Explicación:**
 
-The `specify` CLI tool is used for:
+La herramienta CLI `specify` se usa para:
 
-- **Initial setup:** `specify init` to bootstrap Spec Kit in your project
-- **Upgrades:** `specify init --here --force` to update templates and commands
-- **Diagnostics:** `specify check` to verify tool installation
+- **Configuración inicial:** `specify init` para inicializar Spec Kit en tu proyecto
+- **Actualizaciones:** `specify init --here --force` para actualizar plantillas y comandos
+- **Diagnósticos:** `specify check` para verificar la instalación de herramientas
 
-Once you've run `specify init`, the slash commands (like `/speckit.specify`, `/speckit.plan`, etc.) are **permanently installed** in your project's agent folder (`.claude/`, `.github/prompts/`, `.pi/prompts/`, etc.). Your AI assistant reads these command files directly—no need to run `specify` again.
+Una vez que hayas ejecutado `specify init`, los comandos slash (como `/speckit.specify`, `/speckit.plan`, etc.) quedan **instalados permanentemente** en la carpeta del agente de tu proyecto (`.claude/`, `.github/prompts/`, `.pi/prompts/`, etc.). Tu asistente de IA lee estos archivos de comandos directamente, sin necesidad de ejecutar `specify` de nuevo.
 
-**If your agent isn't recognizing slash commands:**
+**Si tu agente no reconoce los comandos slash:**
 
-1. **Verify command files exist:**
+1. **Verifica que los archivos de comandos existan:**
 
    ```bash
    # For GitHub Copilot
@@ -416,33 +416,33 @@ Once you've run `specify init`, the slash commands (like `/speckit.specify`, `/s
    ls -la .pi/prompts/
    ```
 
-2. **Restart your IDE/editor completely** (not just reload window)
+2. **Reinicia tu IDE/editor completamente** (no solo recargar la ventana)
 
-3. **Check you're in the correct directory** where you ran `specify init`
+3. **Verifica que estés en el directorio correcto** donde ejecutaste `specify init`
 
-4. **For some agents**, you may need to reload the workspace or clear cache
+4. **Para algunos agentes**, puede ser necesario recargar el workspace o limpiar la caché
 
-**Related issue:** If Copilot can't open local files or uses PowerShell commands unexpectedly, this is typically an IDE context issue, not related to `specify`. Try:
+**Problema relacionado:** Si Copilot no puede abrir archivos locales o usa comandos de PowerShell inesperadamente, esto es típicamente un problema de contexto del IDE, no relacionado con `specify`. Intenta:
 
-- Restarting VS Code
-- Checking file permissions
-- Ensuring the workspace folder is properly opened
-
----
-
-## Version Compatibility
-
-Spec Kit follows semantic versioning for major releases. The CLI and project files are designed to be compatible within the same major version.
-
-**Best practice:** Keep both CLI and project files in sync by upgrading both together during major version changes.
+- Reiniciar VS Code
+- Verificar los permisos de archivos
+- Asegurarte de que la carpeta del workspace esté correctamente abierta
 
 ---
 
-## Next Steps
+## Compatibilidad de Versiones
 
-After upgrading:
+Spec Kit sigue versionado semántico para las versiones mayores. El CLI y los archivos del proyecto están diseñados para ser compatibles dentro de la misma versión mayor.
 
-- **Test new slash commands:** Run `/speckit.constitution` or another command to verify everything works
-- **Review release notes:** Check [GitHub Releases](https://github.com/github/spec-kit/releases) for new features and breaking changes
-- **Update workflows:** If new commands were added, update your team's development workflows
-- **Check documentation:** Visit [github.io/spec-kit](https://github.github.io/spec-kit/) for updated guides
+**Buena práctica:** Mantén tanto el CLI como los archivos del proyecto sincronizados actualizando ambos juntos durante los cambios de versiones mayores.
+
+---
+
+## Próximos Pasos
+
+Después de actualizar:
+
+- **Prueba los nuevos comandos slash:** Ejecuta `/speckit.constitution` u otro comando para verificar que todo funcione
+- **Revisa las notas de la versión:** Consulta las [Publicaciones en GitHub](https://github.com/github/spec-kit/releases) para nuevas funcionalidades y cambios importantes
+- **Actualiza los flujos de trabajo:** Si se añadieron nuevos comandos, actualiza los flujos de trabajo de desarrollo de tu equipo
+- **Consulta la documentación:** Visita [github.io/spec-kit](https://github.github.io/spec-kit/) para las guías actualizadas
